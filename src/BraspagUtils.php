@@ -9,7 +9,7 @@
 class BraspagUtils
 {
     public static function getResponseValue($from, $propName){
-        return property_exists($from, $propName) ? $from->$propName : null;
+        return ( is_object($from) && isset($from->$propName) ) ? $from->$propName : null;
     }
     
     public static function getBadRequestErros($errors){
